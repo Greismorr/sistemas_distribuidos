@@ -5,28 +5,29 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Consumidor extends Thread {
+	
     private final BufferInterface buffer;
     private final int mensagens;
 
-    public Consumidor(BufferInterface b, int mensagens) {
-        this.buffer = b;
+    public Consumidor(BufferInterface buffer, int mensagens) {
+        this.buffer = buffer;
         this.mensagens = mensagens;
     }
 
     @Override
     public void run() {
 
-        for (int i = 1; i <= this.mensagens; i++) 
+        for (int contador = 1; contador <= this.mensagens; contador++) 
         {
-            int v = 0;
+            int valorBuffer = 0;
             try 
             {
-                v = buffer.take();
+                valorBuffer = buffer.take();
             } catch (RemoteException ex) {
                 Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
             }
 
-            System.out.println("-----------------------\nCONSUMIDOR retirou: " + v);
+            System.out.println("-----------------------\nCONSUMIDOR retirou: " + valorBuffer);
             try {
                 sleep((int)(Math.random() * 100));
             } catch (InterruptedException e) { }
