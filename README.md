@@ -19,7 +19,7 @@ Para executar este projeto é necessário instalar:
 1. Após a instalação é necessário configurar as variaveis de ambiente:
 
    - JAVA_HOME - Apontando para o local de instalação do Java
-   - PATH - Adicionar "JAVA_HOME\bin"in"
+   - PATH - Adicionar "JAVA_HOME\bin"
 
 ## Execução
 

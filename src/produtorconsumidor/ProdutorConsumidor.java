@@ -11,8 +11,8 @@ public class ProdutorConsumidor {
     
     private ProdutorConsumidor() {}
 
-    public static void main(String[] args) throws UnknownHostException {
-        
+    public static void main(String[] args) throws UnknownHostException 
+    {        
     	try 
     	{        
             Scanner scan = new Scanner(System.in);
@@ -33,9 +33,9 @@ public class ProdutorConsumidor {
             consumidor.start();
             
         } 
-    	catch ( RemoteException | NotBoundException e) 
+    	catch ( RemoteException | NotBoundException  e) 
     	{
-            System.err.println("ProdutorConsumidor exception: " + e.toString());
+            System.err.println("ProdutorConsumidor exception: " + e.getMessage());
         }
     }
 }

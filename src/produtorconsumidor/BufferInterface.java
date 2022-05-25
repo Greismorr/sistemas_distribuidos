@@ -3,7 +3,8 @@ package produtorconsumidor;
 import java.rmi.Remote;
 import java.rmi.RemoteException; 
 
-public interface BufferInterface extends Remote{
+public interface BufferInterface extends Remote
+{
     static final int N = 5;
     int[] B = new int[N];
     int InPtr=0, OutPtr=0;

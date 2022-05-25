@@ -25,8 +25,7 @@ public class Consumidor extends Thread {
             } catch (RemoteException ex) {
                 Logger.getLogger(Consumidor.class.getName()).log(Level.SEVERE, null, ex);
             }
-            
-            //Exibe na tela o valor retirado
+
             System.out.println("-----------------------\nCONSUMIDOR retirou: " + v);
             try {
                 sleep((int)(Math.random() * 100));

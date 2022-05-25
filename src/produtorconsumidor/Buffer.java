@@ -2,13 +2,13 @@ package produtorconsumidor;
 
 import java.net.MalformedURLException;
 import java.rmi.Naming;
-import java.rmi.RMISecurityManager;
 import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
 public class Buffer extends UnicastRemoteObject implements BufferInterface{
     
     private static final int TAMANHO_BUFFER = 5;
+    private static final int PORTA = 1099;
     private int[] vetorBuffer = new int[TAMANHO_BUFFER];
     
     private int FilaEntrada = 0;
@@ -61,14 +61,12 @@ public class Buffer extends UnicastRemoteObject implements BufferInterface{
 
     public static void main(String args[]) throws MalformedURLException{
         try{
-          
-        	System.setSecurityManager(new RMISecurityManager());
-            
+                      
             Buffer buffer = new Buffer();
             
-            java.rmi.registry.LocateRegistry.createRegistry(1099);
+            java.rmi.registry.LocateRegistry.createRegistry(PORTA);
             
-            Naming.rebind("rmi://localhost:1099/BUFFER", buffer);  
+            Naming.rebind("rmi://localhost:" + PORTA + "/BUFFER", buffer);  
             System.out.println("Buffer aguardando conexão.....");
         }
         catch (RemoteException re) {
