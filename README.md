@@ -27,7 +27,7 @@ Para executar este projeto é necessário instalar:
 
          git clone https://github.com/Greismorr/sistemas_distribuidos.git
 
-2. Vá ate o terminal e inicie o serviço:
+2. Vá ate o terminal e inicie o RMI Registry:
         
          rmiregistry &
 
