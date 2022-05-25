@@ -7,7 +7,7 @@ import java.rmi.RemoteException;
 
 public class Buffer extends UnicastRemoteObject implements BufferInterface{
 
-   private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 	
     private static final int TAMANHO_BUFFER = 5;
     private static final int PORTA = 1099;
