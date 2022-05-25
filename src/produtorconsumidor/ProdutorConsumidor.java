@@ -22,7 +22,7 @@ public class ProdutorConsumidor {
             BufferInterface buffer = (BufferInterface)registry.lookup("BUFFER");
             
             System.out.println("--- PRODUTOR - CONSUMIDOR ---");
-            System.out.println("Digite o número de mensagens a serem enviadas pelo produtor");
+            System.out.println("Digite o numero de mensagens a serem enviadas pelo produtor");
             System.out.print("e que serão retiradas pelo consumidor: ");
             mensagens = scan.nextInt();
             

@@ -6,8 +6,10 @@ import java.rmi.server.UnicastRemoteObject;
 import java.rmi.RemoteException;
 
 public class Buffer extends UnicastRemoteObject implements BufferInterface{
-    
-    private static final int TAMANHO_BUFFER = 5;
+
+	private static final long serialVersionUID = 1L;
+	
+	private static final int TAMANHO_BUFFER = 5;
     private static final int PORTA = 1099;
     private int[] vetorBuffer = new int[TAMANHO_BUFFER];
     
@@ -50,8 +52,7 @@ public class Buffer extends UnicastRemoteObject implements BufferInterface{
                 wait();
             } catch (InterruptedException e) {}
         }
-        
-     
+             
         vetorBuffer[FilaEntrada] = value;
         FilaEntrada = (FilaEntrada+1) % TAMANHO_BUFFER;
 
