@@ -8,8 +8,8 @@ public class Produtor extends Thread{
     private final BufferInterface buffer;
     private final int mensagens;
     
-    public Produtor(BufferInterface b, int mensagens) {
-        this.buffer = b;
+    public Produtor(BufferInterface buffer, int mensagens) {
+        this.buffer = buffer;
         this.mensagens = mensagens;
     }
 
