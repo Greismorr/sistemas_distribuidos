@@ -37,5 +37,3 @@ Para executar este projeto é necessário instalar:
 ### Autores
  
 Feito por Elayne Natália, Gabriel Morais e Vitor Bahia.
-
-
