@@ -30,6 +30,10 @@ Para executar este projeto é necessário instalar:
 2. Vá ate o terminal e inicie o RMI Registry:
         
          rmiregistry &
+         
+3. Adicone no java.policy a permissão:
+
+         permission java.security.AllPermission;
 
 ## Tarefa Principal
 
