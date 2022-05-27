@@ -15,7 +15,7 @@ public class ProdutorDeFantasmas extends Thread{
             try {               
                 buffer.criarFantasma();
             } catch (RemoteException e) {
-            	e.printStackTrace();
+            	System.out.println("ProdutorDeFantasmas: " + e.toString());
             }
         }
     }

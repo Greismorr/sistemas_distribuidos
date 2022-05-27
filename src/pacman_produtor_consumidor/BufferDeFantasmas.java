@@ -10,6 +10,8 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
     
     private static final int TAMANHO_BUFFER = 6;
     private static final int PORTA = 1099;
+    private static final String HOST = "rmi://localhost:";
+    private static final String BUFFER = "/BUFFER_DE_FANTASMAS";
     
     private int[] vetorBuffer = new int[TAMANHO_BUFFER];
     private int filaEntrada = 0;
@@ -22,12 +24,13 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
     
     @Override
     public synchronized int comer() throws RemoteException {
-    	//Pausa a digestão de fantasmas caso não haja nenhum fantasma disponível
-        while (contador == 0) {
+    	//Pausa a digestão de fantasmas caso não haja nenhum fantasma disponível ou caso o número de fantasmas
+    	//seja menor que o tamanho do buffer. Assim, será garantido que todo Pacman tenha 6 fantasmas.
+        while (contador == 0 || contador < TAMANHO_BUFFER) {
             try {
 				wait();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				System.out.println("Falha ao consumir: " + e.toString());
 			}
         }
         
@@ -47,7 +50,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             try {
                 wait();
             } catch (InterruptedException e) {
-				e.printStackTrace();
+            	System.out.println("Falha ao CriarFantasma: " + e.toString());
             }
         }
         
@@ -64,7 +67,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             
             java.rmi.registry.LocateRegistry.createRegistry(PORTA);
             
-            Naming.rebind("rmi://localhost:" + PORTA + "/BUFFER_DE_FANTASMAS", buffer);
+            Naming.rebind(HOST + PORTA + BUFFER, buffer);  
             
             ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
             fantasmaProdutor.start();

@@ -13,6 +13,7 @@ public class PacmanConsumidor extends Thread {
     public void run() {
     	while(true) {
             try {
+                System.out.println("-------------");
                 int valorBuffer = buffer.comer();
                 
                 System.out.print("\u15e7-");
@@ -20,9 +21,12 @@ public class PacmanConsumidor extends Thread {
                 for(int currentNumber = 1; currentNumber <= valorBuffer; currentNumber++) {
                     System.out.print("-\u15e3-");
                 }
+                
+                System.out.printf("%n");
+                System.out.printf("PacmanConsumidor tem %d fantasmas para comer!", valorBuffer);
                 System.out.printf("%n");
             } catch (RemoteException e) {
-            	e.printStackTrace();
+              	System.out.println("PacmanConsumidor: " + e.toString());
             }
     	}
     }

@@ -6,11 +6,14 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 
-public class ProdutorConsumidor {
-    public static void main(String[] args) throws UnknownHostException {        
+public class CriarPacmanConsumidor {
+    public static void main(String[] args) throws UnknownHostException {  
+    	
+        final String BUFFER = "BUFFER_DE_FANTASMAS";
+        
     	try {        
             Registry registry = LocateRegistry.getRegistry(1099);
-            BufferInterface buffer = (BufferInterface)registry.lookup("BUFFER_DE_FANTASMAS");
+            BufferInterface buffer = (BufferInterface)registry.lookup(BUFFER);
             
             PacmanConsumidor pacman = new PacmanConsumidor(buffer);
 
