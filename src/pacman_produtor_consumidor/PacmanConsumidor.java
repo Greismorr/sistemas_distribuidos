@@ -22,7 +22,7 @@ public class PacmanConsumidor extends Thread {
                 }
                 System.out.printf("%n");
             } catch (RemoteException e) {
-            	e.printStackTrace();
+              	System.out.println("PacmanConsumidor: " + e.toString());
             }
     	}
     }

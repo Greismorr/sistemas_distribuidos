@@ -10,6 +10,8 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
     
     private static final int TAMANHO_BUFFER = 6;
     private static final int PORTA = 1099;
+    private static final String HOST = "rmi://localhost:";
+    private static final String BUFFER = "/BUFFER_DE_FANTASMAS";
     
     private int[] vetorBuffer = new int[TAMANHO_BUFFER];
     private int filaEntrada = 0;
@@ -27,7 +29,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             try {
 				wait();
 			} catch (InterruptedException e) {
-				e.printStackTrace();
+				System.out.println("Falha ao consumir: " + e.toString());
 			}
         }
         
@@ -47,7 +49,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             try {
                 wait();
             } catch (InterruptedException e) {
-				e.printStackTrace();
+            	System.out.println("Falha ao CriarFantasma: " + e.toString());
             }
         }
         
@@ -64,7 +66,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             
             java.rmi.registry.LocateRegistry.createRegistry(PORTA);
             
-            Naming.rebind("rmi://localhost:" + PORTA + "/BUFFER_DE_FANTASMAS", buffer);  
+            Naming.rebind(HOST + PORTA + BUFFER, buffer);  
             System.out.println("Disponível para instâncias Pacman!");
         } catch (RemoteException e) {
             System.out.println("Falha no Buffer: " + e.toString());
