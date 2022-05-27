@@ -64,7 +64,11 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             
             java.rmi.registry.LocateRegistry.createRegistry(PORTA);
             
-            Naming.rebind("rmi://localhost:" + PORTA + "/BUFFER_DE_FANTASMAS", buffer);  
+            Naming.rebind("rmi://localhost:" + PORTA + "/BUFFER_DE_FANTASMAS", buffer);
+            
+            ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
+            fantasmaProdutor.start();
+            
             System.out.println("Disponível para instâncias Pacman!");
         } catch (RemoteException e) {
             System.out.println("Falha no Buffer: " + e.toString());

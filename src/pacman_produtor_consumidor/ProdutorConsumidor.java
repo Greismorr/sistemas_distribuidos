@@ -12,10 +12,8 @@ public class ProdutorConsumidor {
             Registry registry = LocateRegistry.getRegistry(1099);
             BufferInterface buffer = (BufferInterface)registry.lookup("BUFFER_DE_FANTASMAS");
             
-            ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
             PacmanConsumidor pacman = new PacmanConsumidor(buffer);
 
-            fantasmaProdutor.start();
             pacman.start(); 
         } 
     	catch ( RemoteException | NotBoundException  e) {
