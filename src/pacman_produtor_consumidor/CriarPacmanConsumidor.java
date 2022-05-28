@@ -5,15 +5,18 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
+import properties.Manipulador;
 
 public class CriarPacmanConsumidor {
-    public static void main(String[] args) throws UnknownHostException { 
-        final String HOST = "localhost";
-        final String BUFFER = "BUFFER_DE_FANTASMAS";
-        
-    	try {        
-            Registry registry = LocateRegistry.getRegistry(HOST, 1099);
-            BufferInterface buffer = (BufferInterface)registry.lookup(BUFFER);
+	
+    public static void main(String[] args) throws UnknownHostException {         
+    	
+    	try {      
+    		
+            Manipulador.CarregarDadosSensiveis();
+    		
+            Registry registry = LocateRegistry.getRegistry(Manipulador.getUrl(), Manipulador.getPort());
+            BufferInterface buffer = (BufferInterface)registry.lookup(Manipulador.getBuffer().replace("/", ""));
             
             PacmanConsumidor pacman = new PacmanConsumidor(buffer);
 
