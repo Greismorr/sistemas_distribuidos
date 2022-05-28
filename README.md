@@ -42,7 +42,7 @@ Se necessário, altere o arquivo config.properties para alterar as configuraçõ
 
 ## Diagrama
 
-
+![alt text](https://github.com/Greismorr/sistemas_distribuidos/blob/feature/properties/sistema_distribuido.png)
 
 ### Autores
  
