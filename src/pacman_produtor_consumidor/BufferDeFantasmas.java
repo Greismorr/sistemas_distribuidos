@@ -20,8 +20,8 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
     
     @Override
     public synchronized int comer() throws RemoteException {
-    	//Pausa a digestão de fantasmas caso não haja nenhum fantasma disponível ou caso o número de fantasmas
-    	//seja menor que o tamanho do buffer. Assim, será garantido que todo Pacman tenha 6 fantasmas.
+    	//Pausa a digestï¿½o de fantasmas caso nï¿½o haja nenhum fantasma disponï¿½vel ou caso o nï¿½mero de fantasmas
+    	//seja menor que o tamanho do buffer. Assim, serï¿½ garantido que todo Pacman tenha 6 fantasmas.
         while (contador == 0 || contador < Manipulador.getTamanho_buffer()) {
             try {
 				wait();
@@ -35,10 +35,6 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
         filaSaida = (filaSaida + 1) % Manipulador.getTamanho_buffer();
         contador = contador - 1;
         
-        System.out.printf("%n");
-    	System.out.printf("BufferDeFantasmas comeu %d fantasmas", contador);
-    	System.out.printf("%n");
-    	 
         notifyAll();
         
         return I;
@@ -46,7 +42,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
     
     @Override
     public synchronized void criarFantasma() throws RemoteException {
-    	//Pausa a criação de fantasmas caso o número de fantasmas seja do tamanho do buffer
+    	//Pausa a criaï¿½ï¿½o de fantasmas caso o nï¿½mero de fantasmas seja do tamanho do buffer
         while (contador == Manipulador.getTamanho_buffer()) {
             try {
                 wait();
@@ -75,7 +71,7 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
             ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
             fantasmaProdutor.start();
             
-            System.out.println("Disponível para instâncias Pacman!");
+            System.out.println("Disponï¿½vel para instï¿½ncias Pacman!");
             
         } catch (RemoteException e) {
             System.out.println("Falha no Buffer: " + e.toString());
