@@ -10,7 +10,7 @@ public class PacmanConsumidor extends Thread {
     }
 
     @Override
-    public void run() {
+    public void run() {  	 
     	while(true) {
             try {
                 System.out.println("-------------");
