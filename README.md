@@ -27,20 +27,27 @@ Para executar este projeto é necessário instalar:
 
          git clone https://github.com/Greismorr/sistemas_distribuidos.git
 
-2. Gerar o .jar do Server : server.jar
+2. Gerar o .jar do Server 
 
-3. Gerar o .jar do Client : client.jar
+       server.jar
+
+3. Gerar o .jar do Client 
+
+         client.jar
 
 4. Start o registro remoto na porta 1099
    
-      rmiregistry & 1099
+         rmiregistry & 1099
 
-5. Execute no terminal:
+5. Execute o comando no terminal para startar o servidor:
 
-      java -jar server.jar para startar o servidor
-         Resultado esperado: Servidor iniciado em rmi://localhost:1099/BUFFER_DE_FANTASMAS
+         java -jar server.jar
+              
+     Resultado esperado: Servidor iniciado em rmi://localhost:1099/BUFFER_DE_FANTASMAS
+     
+5. Execute o comando no terminal para startar o cliente:
 
-      java -jar client.jar para startar o cliente
+         java -jar client.jar 
 
 - Se necessário, altere o arquivo config.properties para alterar as configurações de host, porta, nome e tamanho do buffer.
 - Pode ser instanciado N clientes para o mesmo servidor.
