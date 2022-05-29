@@ -11,22 +11,23 @@ public class Server {
 
 	Server() 
 	{
-		try 
-		{
-			Manipulador.CarregarDadosSensiveis();
+	   try 
+	      {
+		Manipulador.CarregarDadosSensiveis();
 				
-			String Path = Manipulador.getHost() + Manipulador.getPort() + Manipulador.getBuffer();
-			BufferDeFantasmas buffer = new BufferDeFantasmas();
+		String Path = Manipulador.getHost() + Manipulador.getPort() + Manipulador.getBuffer();
+		BufferDeFantasmas buffer = new BufferDeFantasmas();
 	
-			java.rmi.registry.LocateRegistry.createRegistry(Manipulador.getPort());
+		java.rmi.registry.LocateRegistry.createRegistry(Manipulador.getPort());
 	
-			Naming.rebind(Path, buffer);	
-			System.out.printf("Servidor iniciado em %s", Path);
+		Naming.rebind(Path, buffer);	
+		System.out.printf("Servidor iniciado em %s", Path);
 			
-            ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
-            fantasmaProdutor.start();           
+            	ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
+            	fantasmaProdutor.start();           
 
-		} catch (RemoteException | MalformedURLException e) {
+		}
+		catch (RemoteException | MalformedURLException e) {
 			System.out.println("Server: " + e.toString());
 		}
 	}
