@@ -1,29 +1,30 @@
 package properties;
 
-import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Properties;
 
 public final class Manipulador {
 	
-	private final static String PATH_PROPERTIES = "src\\properties\\config.properties";
+	private final static String PATH_PROPERTIES = "/properties/config.properties";
 	static String host, buffer, url; 
 	static int port, tamanho_buffer;
 		
 	public static Properties getProp() throws IOException {
+		
+		InputStream input = Manipulador.class.getResourceAsStream(PATH_PROPERTIES);
+		
 		Properties props = new Properties();
-		FileInputStream file = new FileInputStream(PATH_PROPERTIES);
-		props.load(file);
+		props.load(input);
 		
 		return props;
 	}
 		
 	public static void CarregarDadosSensiveis()
-	{
-		Properties prop;
-		
-		try {
-			prop = getProp();
+	{		
+		try 
+		{
+			Properties prop = getProp();
 			
 			setPort(Integer.parseInt(prop.getProperty("prop.port")));
 			setTamanho_buffer(Integer.parseInt(prop.getProperty("prop.tamanho_buffer")));

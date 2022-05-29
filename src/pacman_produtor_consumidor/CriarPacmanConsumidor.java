@@ -17,7 +17,7 @@ public class CriarPacmanConsumidor {
     		
             Registry registry = LocateRegistry.getRegistry(Manipulador.getUrl(), Manipulador.getPort());
             BufferInterface buffer = (BufferInterface)registry.lookup(Manipulador.getBuffer().replace("/", ""));
-            
+            		
             PacmanConsumidor pacman = new PacmanConsumidor(buffer);
 
             pacman.start(); 

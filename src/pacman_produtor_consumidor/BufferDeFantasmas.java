@@ -1,9 +1,7 @@
 package pacman_produtor_consumidor;
 
-import java.net.MalformedURLException;
 import java.rmi.server.UnicastRemoteObject;
 import properties.Manipulador;
-import java.rmi.Naming;
 import java.rmi.RemoteException;
 
 public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInterface{
@@ -58,23 +56,4 @@ public class BufferDeFantasmas extends UnicastRemoteObject implements BufferInte
         notifyAll(); 
     }
 
-    public static void main(String args[]) throws MalformedURLException {
-        try {    
-        	
-        	Manipulador.CarregarDadosSensiveis();
-        	BufferDeFantasmas buffer = new BufferDeFantasmas();
-
-            java.rmi.registry.LocateRegistry.createRegistry(Manipulador.getPort());
-            
-            Naming.rebind(Manipulador.getHost() + Manipulador.getPort() + Manipulador.getBuffer(), buffer);  
-            
-            ProdutorDeFantasmas fantasmaProdutor = new ProdutorDeFantasmas(buffer);
-            fantasmaProdutor.start();
-            
-            System.out.println("Dispon�vel para inst�ncias Pacman!");
-            
-        } catch (RemoteException e) {
-            System.out.println("Falha no Buffer: " + e.toString());
-        }
-    }
 }
