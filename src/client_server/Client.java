@@ -13,7 +13,7 @@ public class Client {
 
 	public static void main(String args[]) throws UnknownHostException {
         
-		try {      
+	try {      
     		
             Manipulador.CarregarDadosSensiveis();
     		
