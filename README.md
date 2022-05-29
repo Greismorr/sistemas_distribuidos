@@ -7,7 +7,6 @@ Apresentação e entrega do trabalho.
 - [Pré-requisitos](#pré-requisitos)
 - [Execução Aplicação](#execução)
 - [Tarefa Principal](#tarefa-principal)
-- [Diagrama](#diagrama)
 
 ## Pré-requisitos
 
@@ -28,21 +27,29 @@ Para executar este projeto é necessário instalar:
 
          git clone https://github.com/Greismorr/sistemas_distribuidos.git
 
-2. Execute a classe BufferDeFantasmas para tornar disponível a instância Pacman
+2. Gerar o .jar do Server : server.jar
 
-3. Execute a classe CriarPacmanConsumidor
+3. Gerar o .jar do Client : client.jar
 
-Se necessário, altere o arquivo config.properties para alterar as configurações de host, porta, nome e tamanho do buffer.
+4. Start o registro remoto na porta 1099
+   
+      rmiregistry & 1099
+
+5. Execute no terminal:
+
+      java -jar server.jar para startar o servidor
+         Resultado esperado: Servidor iniciado em rmi://localhost:1099/BUFFER_DE_FANTASMAS
+
+      java -jar client.jar para startar o cliente
+
+- Se necessário, altere o arquivo config.properties para alterar as configurações de host, porta, nome e tamanho do buffer.
+- Pode ser instanciado N clientes para o mesmo servidor.
 
 ## Tarefa Principal
 
 - Reproduzir os exemplos apresentados em anexo e implementar uma versão do produtor-consumidor baseado em troca de mensagens (Sockets TCP/IP multithread) que inclua: um servidor que mantém um buffer com os itens produzidos e consumidos, e cliente(s) que solicite(m) produção/consumo de itens. Podem ser executados N clientes que se conectam a um único servidor, o qual disparará thread produtor ou thread consumidor de acordo com a solicitação.
 
 - Observados os exemplos apresentados, implementar uma versão do produtor-consumidor baseado em Java RMI que inclua: um serviço RMI que mantém um buffer com os itens produzidos e consumidos, e cliente(s) que solicite(m) produção/consumo de itens. Podem ser executados N clientes que se conectam ao serviço, o qual disparará thread produtor ou thread consumidor de acordo com a solicitação.
-
-## Diagrama
-
-
 
 ### Autores
  
