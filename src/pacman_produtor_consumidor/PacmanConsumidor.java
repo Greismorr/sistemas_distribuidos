@@ -13,9 +13,8 @@ public class PacmanConsumidor extends Thread {
     public void run() {  	 
     	while(true) {
             try {
-                System.out.println("-------------");
+                System.out.println("Pacman Consumidor");
                 int valorBuffer = buffer.comer();
-                
                 System.out.print("\u15e7-");
                 
                 for(int currentNumber = 1; currentNumber <= valorBuffer; currentNumber++) {
