@@ -14,7 +14,7 @@ Estas são as instalações e configurações necessárias para executar o proje
 
 Para executar este projeto é necessário instalar:
 
-- Java 11
+- Java 17
 
 1. Após a instalação é necessário configurar as variaveis de ambiente:
 
@@ -43,7 +43,7 @@ Para executar este projeto é necessário instalar:
 
          java -jar server.jar
               
-     Resultado esperado: Servidor iniciado em rmi://localhost:1099/BUFFER_DE_FANTASMAS
+     Resultado esperado: Servidor iniciado em rmi://seu.ip:1099/BUFFER_DE_FANTASMAS
      
 5. Execute o comando no terminal para startar o cliente:
 
