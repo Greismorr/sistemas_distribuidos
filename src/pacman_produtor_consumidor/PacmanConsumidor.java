@@ -15,12 +15,13 @@ public class PacmanConsumidor extends Thread {
             try {
                 System.out.println("Pacman Consumidor");
                 int valorBuffer = buffer.comer();
-                  System.out.print("C<-");
-                //System.out.print("u15E7-"); - Pacman
+                
+                //System.out.print("C<-");
+                System.out.print("u15E7-"); - Pacman
                 
                 for(int currentNumber = 1; currentNumber <= valorBuffer; currentNumber++) {
-                    //System.out.print("-\u15e3-"); - Fantasma
-                    System.out.print("\\^^/-");
+                    System.out.print("-\u15e3-"); - Fantasma
+                    //System.out.print("\\^^/-");
                 }
                 
                 System.out.printf("%n");
