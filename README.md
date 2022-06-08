@@ -21,6 +21,8 @@ Para executar este projeto é necessário instalar:
    - JAVA_HOME - Apontando para o local de instalação do Java
    - PATH - Adicionar "JAVA_HOME\bin"
 
+2. Para que as figuras do Pacman e do Fantasma sejam impressas corretamente, é necessário configurar o terminal ou a IDE para UTF-8. Alternativamente, é possível comentar os prints das figuras e descomentar o print alternativo na classe PacmanConsumidor.
+
 ## Execução
 
 1. Clonar repositório git utilizando o comando:
